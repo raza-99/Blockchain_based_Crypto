@@ -1,5 +1,5 @@
 const PubNub=require('pubnub');
-const Blockchain = require('../blockchain/blockchain');
+
 const credentials={
     publishKey:'pub-c-dc53d6d3-65e4-4f66-863a-d4eb706ecfda',
     subscribeKey:'sub-c-e31a41ca-1aac-11ec-9ca7-5693d1c31269',
@@ -25,7 +25,7 @@ class PubSub{
             //and that message has a call back which appears with parameters here it is message objects
             message:(messageObject)=>{
                 const{channel,message}=messageObject;
-            console.log(`Message receives. Channel: ${channel}.Message:${message}`);
+          
             const parsedMessage=JSON.parse(message);
 
             switch(channel){
@@ -60,6 +60,7 @@ class PubSub{
             message:JSON.stringify(this.blockchain.chain)
         });
     }
+
     broadcastTransaction(transaction){
 this.publish({
     channel:CHANNELS.TRANSACTION,

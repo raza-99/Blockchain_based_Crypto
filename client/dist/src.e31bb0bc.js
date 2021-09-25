@@ -46682,7 +46682,7 @@ var Block = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log('this.displayTransaction', this.displayTransaction);
+      console.log('this.displayTransaction');
       var _this$props$block = this.props.block,
           timestamp = _this$props$block.timestamp,
           hash = _this$props$block.hash;
@@ -46782,7 +46782,7 @@ var Blocks = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log('this.state', this.state);
+      console.log('this.state');
       return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
         to: "/"
       }, "Home")), /*#__PURE__*/_react.default.createElement("h3", null, "Blocks"), this.state.blocks.map(function (block) {
@@ -46906,7 +46906,7 @@ var ConductTransaction = /*#__PURE__*/function (_Component) {
   _createClass(ConductTransaction, [{
     key: "render",
     value: function render() {
-      console.log('this.state', this.state);
+      console.log('this.state');
       return /*#__PURE__*/_react.default.createElement("div", {
         className: "ConductTransaction"
       }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
@@ -47087,7 +47087,7 @@ var TransactionPool = /*#__PURE__*/function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "fetchMineTransactions", function () {
-      fetch("".concat(document.location.origin, "/api/mine-transacions")).then(function (response) {
+      fetch("".concat(document.location.origin, "/api/mine-transactions")).then(function (response) {
         if (response.status === 200) {
           alert('success');
 
@@ -47133,7 +47133,7 @@ var TransactionPool = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/_react.default.createElement("hr", null), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
         bsStyle: "danger",
         onClick: this.fetchMineTransactions
-      }, "Mine the Transaction"));
+      }, "Mine the Transactions"));
     }
   }]);
 
@@ -47209,7 +47209,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54608" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52130" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

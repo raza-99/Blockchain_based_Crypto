@@ -87,7 +87,7 @@ const syncWithRootState=()=>{
     request({url:`${ROOT_NODE_ADDRESS}/api/blocks`},(error,response,body)=>{
         if(!error&&response.statusCode===200){
             const rootChain=JSON.parse(body);
-            console.log('replace chain on a sync with ',rootChain);
+            console.log('replace chain on a sync with ');
             blockchain.replaceChain(rootChain);
         }
     });
@@ -95,49 +95,49 @@ const syncWithRootState=()=>{
     request({url:`${ROOT_NODE_ADDRESS}/api/transaction-pool-map`},(error,response,body)=>{
         if(!error&&response.statusCode===200){
             const rootTransactionPoolMap=JSON.parse(body);
-            console.log('replace Transaction pool Map on a sync with ',rootTransactionPoolMap);
+            console.log('replace Transaction pool Map on a sync with ');
             transactionPool.setMap(rootTransactionPoolMap);
         }
     });
 
 }
 // jsut putting some  dummy  transactions
-if(isDevelopment){
-const walletFoo=new Wallet();
-const walletBar=new Wallet();
-const generateWalletTransaction=({wallet,recipient,amount})=>{
-const transaction=wallet.createTransaction({
-    recipient,amount,chain:blockchain.chain
-});
+// if(isDevelopment){
+// const walletFoo=new Wallet();
+// const walletBar=new Wallet();
+// const generateWalletTransaction=({wallet,recipient,amount})=>{
+// const transaction=wallet.createTransaction({
+//     recipient,amount,chain:blockchain.chain
+// });
 
-transactionPool.setTransaction(transaction);
-}
+// transactionPool.setTransaction(transaction);
+// }
 
-const walletAction=()=>generateWalletTransaction({
-    wallet,recipient:walletFoo.publicKey,amount:5
-});
+// const walletAction=()=>generateWalletTransaction({
+//     wallet,recipient:walletFoo.publicKey,amount:5
+// });
 
-const walletFooAction=()=>generateWalletTransaction({
-    wallet:walletFoo,recipient:walletBar.publicKey,amount:15
-});
-const walletBarAction=()=>generateWalletTransaction({
-    wallet:walletBar,recipient:wallet.publicKey,amount:15
-});
+// const walletFooAction=()=>generateWalletTransaction({
+//     wallet:walletFoo,recipient:walletBar.publicKey,amount:15
+// });
+// const walletBarAction=()=>generateWalletTransaction({
+//     wallet:walletBar,recipient:wallet.publicKey,amount:15
+// });
 
-for(let i=0;i<10;i++){
-    if(i%3===0){
-        walletAction();
-        walletFooAction();
-    }else if(i%3===1){
-walletAction();
-walletBarAction();
-    }else{
-        walletFooAction();
-        walletBarAction();
-    }
-    transactionMiner.mineTransactions();
-}
-}
+// for(let i=0;i<10;i++){
+//     if(i%3===0){
+//         walletAction();
+//         walletFooAction();
+//     }else if(i%3===1){
+// walletAction();
+// walletBarAction();
+//     }else{
+//         walletFooAction();
+//         walletBarAction();
+//     }
+//     transactionMiner.mineTransactions();
+// }
+// }
 
 
 let PEER_PORT;

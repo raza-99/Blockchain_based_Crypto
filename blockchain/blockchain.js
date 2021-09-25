@@ -32,7 +32,7 @@ replaceChain(chain,validateTransactions,onSuccess){
         return ;
     }
     if(onSuccess)onSuccess();
-    console.log('replacing chain with ',chain);
+    console.log('replacing chain with ');
     this.chain=chain;
 }
 validTransactionData({chain}){
@@ -73,7 +73,7 @@ const trueBalance=Wallet.calculateBalance({
     address:transaction.input.address
 });
 if(transaction.input.amount!==trueBalance){
-    console.console.error(('Invalid input amount'));
+    console.error(('Invalid input amount'));
     return false;
 }
 

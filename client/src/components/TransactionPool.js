@@ -16,7 +16,7 @@ class TransactionPool extends Component{
 
 
     fetchMineTransactions=()=>{
-        fetch(`${document.location.origin}/api/mine-transacions`)
+        fetch(`${document.location.origin}/api/mine-transactions`)
         .then(response=>{
             if(response.status===200){
                 alert('success');
@@ -56,8 +56,12 @@ componentWillUnmount(){
     })
 }
 <hr/>
-<Button bsStyle="danger" 
-onClick={this.fetchMineTransactions}>Mine the Transaction</Button>
+<Button 
+bsStyle="danger" 
+onClick={this.fetchMineTransactions}
+>
+    Mine the Transactions
+    </Button>
 </div>
 
         )
