@@ -148,6 +148,6 @@ const PORT=process.env.PORT||PEER_PORT||DEFAULT_PORT;//if peer, port is set then
 
 app.listen(PORT,()=>{
     console.log(`listening at localhost $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$:${PORT}`);
-
+if(PORT!==DEFAULT_PORT)
     syncWithRootState();
 });
